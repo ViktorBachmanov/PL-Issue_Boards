@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import EditForm from './routes/editForm';
+import Description from './features/todos/description';
 import MainBoard from './components/mainBoard'
-
+import store from './store';
+import App from './App';
 
 
 ReactDOM.render(
@@ -21,6 +21,7 @@ ReactDOM.render(
           <Route path='/' element={<App />}>
             <Route index element={<MainBoard/>}/>
             <Route path='new' element={<EditForm />} />
+            <Route path=':todoId' element={<Description />} />
           </Route>          
         </Routes>
       </BrowserRouter>
