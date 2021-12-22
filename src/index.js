@@ -6,10 +6,24 @@ import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import EditForm from './routes/editForm';
+import MainBoard from './components/mainBoard'
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<App />}>
+            <Route index element={<MainBoard/>}/>
+            <Route path='new' element={<EditForm />} />
+          </Route>          
+        </Routes>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
