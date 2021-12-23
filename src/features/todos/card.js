@@ -17,6 +17,7 @@ export default function Card(props) {
             <div className="card__footer">
                 <PriorityPic level={props.level} />
                 <div className="story-points-pic story-points-pic_theme-1">{props.storyPoints}</div>
+                <div className="card__id">{props.id}</div>
             </div>
         </div>
     );

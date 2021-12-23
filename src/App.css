@@ -82,6 +82,11 @@ button:disabled {
   margin-top: 1rem;
 }
 
+.card__id {
+  margin-left: auto;
+  font-size: 14px;
+}
+
 
 
 .edit-form {
