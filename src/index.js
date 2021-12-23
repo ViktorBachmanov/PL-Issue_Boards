@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import EditForm from './routes/editForm';
+import EditForm from './features/todos/editForm';
 import Description from './features/todos/description';
 import MainBoard from './components/mainBoard'
 import store from './store';
