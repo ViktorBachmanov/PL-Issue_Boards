@@ -1,5 +1,5 @@
-.App-link {
-  color: rgb(112, 76, 182);
+.App {
+  padding: 11px;
 }
 
 
@@ -23,6 +23,15 @@ button:disabled {
   background: silver;
 }
 
+.main-board__title {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.search_theme-1 {
+  margin: 0.5rem;
+}
+
 .button {
   padding: 0.5rem;
   border-radius: 6px;
@@ -40,7 +49,7 @@ button:disabled {
 
 .boards-container {
   display: flex;
-  padding: 11px;
+  
   min-height: 100vh;
 }
 

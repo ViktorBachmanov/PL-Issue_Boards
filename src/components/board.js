@@ -1,12 +1,12 @@
 import Card from '../features/todos/card';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 
 export default function Board(props) {
-    const todos = useSelector(state => state.todos);
+    //const todos = useSelector(state => state.todos);
     const dispatch = useDispatch();
 
-    const filteredTodos = todos.filter(todo => todo.status === props.title);
+    const filteredTodos = props.todos.filter(todo => todo.status === props.title);
 
     const todoCards = filteredTodos.map(todo => {
         return <Card key={todo.id} content={todo.title} id={todo.id}/>;

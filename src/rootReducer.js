@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
 import todosReducer from './features/todos/todosSlice'
-//import filtersReducer from './features/filters/filtersSlice'
+import filterReducer from './features/filter/filterSlice'
 
 const rootReducer = combineReducers({
   todos: todosReducer,
-  //filters: filtersReducer,
+  filter: filterReducer,
 })
 
 export default rootReducer
