@@ -9,7 +9,10 @@ export default function Board(props) {
     const filteredTodos = props.todos.filter(todo => todo.status === props.title);
 
     const todoCards = filteredTodos.map(todo => {
-        return <Card key={todo.id} content={todo.title} id={todo.id}/>;
+        return <Card key={todo.id} 
+                    content={todo.title} 
+                    id={todo.id} 
+                    level={todo.priority}/>;
     });
 
     const handleDragOver = (ev) => {

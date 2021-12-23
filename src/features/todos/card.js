@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PriorityPic from './priorityPic'
 
 
 export default function Card(props) {
@@ -12,6 +13,7 @@ export default function Card(props) {
     return (
         <div className="card card_theme-1" draggable="true" onDragStart={handleDragStart}>
             <Link to={props.id} draggable='false'>{props.content}</Link>
+            <PriorityPic level={props.level} />
         </div>
     );
 }
