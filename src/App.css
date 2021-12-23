@@ -26,6 +26,11 @@ button:disabled {
   background: silver;
 }
 
+
+.breadcrumbs {
+  font-size: 12px;
+}
+
 .main-board__title {
   display: inline-block;
   margin-right: 2rem;
@@ -59,13 +64,18 @@ button:disabled {
 .board {
   background: #F6F8F9;
   border-radius: 6px 6px 0 0;
-  padding: 0 8px;
+  padding: 8px;
   flex: 1 0 10%;
   min-width: 10%;
 }
 
 .board_theme-1 {
   margin: 0 5px;
+}
+
+.board__title {
+  font-size: 14px;
+  color: #6E7C87;
 }
 
 

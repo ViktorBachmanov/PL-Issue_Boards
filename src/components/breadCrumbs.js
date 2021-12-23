@@ -13,7 +13,6 @@ export default function BreadCrumbs() {
 
 
     React.useEffect(() => {
-        console.log('handle route change here', location)
         switch(location.pathname) {
             case '/':
                 setPathname('');
@@ -31,9 +30,9 @@ export default function BreadCrumbs() {
     }, [location]);
 
     return (
-        <h3>
+        <div className='breadcrumbs'>
             <Link to='/'>Issue Boards</Link>{pathname}
-        </h3>
+        </div>
     );
 }
 
