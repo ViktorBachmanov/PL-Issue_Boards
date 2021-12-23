@@ -1,5 +1,11 @@
 export function getTodoById(todos, id) {
-    return todos.find(todo => todo.id === id);
+    let todo = todos.find(todo => todo.id === id);
+
+    if(todo !== undefined) {
+        todo = { ...todo };
+    }
+
+    return todo;
 }
 
 export function replaceTodoById(todos, newTodo) {
@@ -12,4 +18,23 @@ export function replaceTodoById(todos, newTodo) {
     });
 
     return newTodos;
+}
+
+export function getNextId(todos) {
+    let lastId = todos.reduce((prevResult, todo) => {
+        const currentVal = parseIntId(todo.id);
+        return Math.max(prevResult, currentVal)
+    }, -1);
+
+    lastId++;
+
+    return `FC-${lastId}`;
+}
+
+function parseIntId(id) {
+    const index = id.indexOf('-');
+
+    const val = id.substring(index + 1);
+
+    return val;
 }

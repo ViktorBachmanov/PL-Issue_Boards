@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 
-export default function StoryPoints() {
-    const [val, setVal] = useState(1);
+export default function StoryPoints(props) {
+    const [val, setVal] = useState(props.val);
 
     const handleChange = (e) => {
         //console.log(e.target.value);

@@ -3,14 +3,12 @@ import { useParams } from "react-router-dom";
 import EditForm from './editForm';
 //import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux'
+import { getTodoById } from './utils'
 
 
 export default function Description() {
-    
-    
-
     const { todoId } = useParams();
-       
+    const todo = useSelector(state => getTodoById(state.todos, todoId));       
 
     let readView = (
         <Fragment>
@@ -23,7 +21,7 @@ export default function Description() {
     
 
     function handleEdit() {
-        setView(<EditForm/>);
+        setView(<EditForm todo={todo} />);
        
     };
 

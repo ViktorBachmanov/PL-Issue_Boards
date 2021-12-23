@@ -10,5 +10,6 @@ export const statusTypes = {
     TO_DO: 'TO DO',
     IN_PROGRESS: 'IN PROGRESS',
     TEST: 'TEST',
-    DONE: 'DONE'
+    DONE: 'DONE',
+    NOT_SET: 'NOT_SET'
 }
