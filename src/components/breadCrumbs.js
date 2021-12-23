@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
+import { getTodoById } from '../features/todos/utils'
 
 
 export default function BreadCrumbs() {
@@ -37,6 +38,3 @@ export default function BreadCrumbs() {
 }
 
 
-function getTodoById(todos, id) {
-    return todos.find(todo => todo.id === id);
-}
