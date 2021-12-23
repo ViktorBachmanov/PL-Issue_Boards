@@ -13,7 +13,11 @@ export default function Card(props) {
     return (
         <div className="card card_theme-1" draggable="true" onDragStart={handleDragStart}>
             <Link to={props.id} draggable='false'>{props.content}</Link>
-            <PriorityPic level={props.level} />
+
+            <div className="card__footer">
+                <PriorityPic level={props.level} />
+                <div className="story-points-pic story-points-pic_theme-1">{props.storyPoints}</div>
+            </div>
         </div>
     );
 }

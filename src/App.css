@@ -76,6 +76,13 @@ button:disabled {
   margin: 8px 0;
 }
 
+.card__footer {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+
 
 .edit-form {
   width: 535px;
@@ -89,5 +96,21 @@ button:disabled {
 .edit-form__textarea_theme-1 {
   display: inline-block;
   width: 100%;
+}
+
+.story-points-pic {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #E5E9EB;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-points-pic_theme-1 {
+  margin-left: 0.5rem;
 }
 

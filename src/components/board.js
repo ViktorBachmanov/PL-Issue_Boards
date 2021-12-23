@@ -12,7 +12,8 @@ export default function Board(props) {
         return <Card key={todo.id} 
                     content={todo.title} 
                     id={todo.id} 
-                    level={todo.priority}/>;
+                    level={todo.priority}
+                    storyPoints={todo.storyPoints}/>;
     });
 
     const handleDragOver = (ev) => {
