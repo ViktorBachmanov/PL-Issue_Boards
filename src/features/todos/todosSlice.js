@@ -1,11 +1,18 @@
 import initialState from './initialState'
-import { getTodoById, replaceTodo } from './utils'
+import { getTodoById, replaceTodoById } from './utils'
 
 
 export default function todosReducer(state = initialState, action) {
     switch (action.type) {
         case 'todos/todoSave': {
-            return [ ...state, action.payload ];
+            const todo = getTodoById(state, action.payload.id);
+            if(todo === undefined) {
+                return [ ...state, action.payload ];    // Add new todo
+            } else {
+                const editedTodo = action.payload;
+                let newState = replaceTodoById(state, editedTodo);
+                return newState;
+            }            
         }
         case 'todos/todoChangeStatus': {
             const todo = getTodoById(state, action.payload.id);
@@ -14,7 +21,7 @@ export default function todosReducer(state = initialState, action) {
                 return state;
             }
             const newTodo = { ...todo, status: action.payload.status };
-            let newState = replaceTodo(state, newTodo);
+            let newState = replaceTodoById(state, newTodo);
             return newState;
         }
         default: 
