@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 
 
 export default function Board(props) {
-    //const todos = useSelector(state => state.todos);
     const dispatch = useDispatch();
 
     const filteredTodos = props.todos.filter(todo => todo.status === props.title);

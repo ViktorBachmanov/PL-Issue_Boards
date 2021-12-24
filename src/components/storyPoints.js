@@ -13,9 +13,6 @@ export default class StoryPoints extends React.Component {
     }
 
     handleChange(e) {
-        //console.log(e.target.value);
-
-        //const inputVal = parseInt(e.target.value);
         let inputVal = e.target.value;
         
         if(inputVal < 1) {

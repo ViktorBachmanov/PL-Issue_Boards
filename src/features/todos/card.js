@@ -5,7 +5,6 @@ import PriorityPic from './priorityPic'
 export default function Card(props) {
 
     const handleDragStart = (ev) => {
-        //ev.dataTransfer.setData("application/x-moz-node", ev.target);
         ev.dataTransfer.setData("plain/text", props.id);
         ev.dataTransfer.effectAllowed = "move";
     }

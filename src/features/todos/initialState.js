@@ -26,6 +26,30 @@ import { priorLevels, statusTypes } from '../../types'
         storyPoints: 3,
         status: statusTypes.IN_PROGRESS,
     },
+    {
+        id: 'FC-13',
+        title: 'As a user, I want to access Intercom help center, so that I am not confused by Crisp',
+        description: 'As a user, I want to access Intercom help center, so that I am not confused by Crisp',
+        priority: priorLevels.MINOR,
+        storyPoints: 1,
+        status: statusTypes.DONE,
+    },
+    {
+        id: 'FC-17',
+        title: 'Remove requests to ipfy service from frontend',
+        description: 'Remove requests to ipfy service from frontend',
+        priority: priorLevels.CRITICAL,
+        storyPoints: 2,
+        status: statusTypes.DONE,
+    },
+    {
+        id: 'FC-19',
+        title: 'Replace JustComments with something',
+        description: 'Replace JustComments with something',
+        priority: priorLevels.CRITICAL,
+        storyPoints: 3,
+        status: statusTypes.TEST,
+    },
     
 ];
 

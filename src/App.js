@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Counter } from './features/counter/Counter';
 import './App.css';
 
 import { Outlet } from "react-router-dom";
@@ -12,8 +11,6 @@ function App() {
     <div className="App">
 
       <BreadCrumbs/>
-
-      
 
       <Outlet/>
       

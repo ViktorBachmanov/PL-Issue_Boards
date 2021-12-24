@@ -85,6 +85,10 @@ button:disabled {
   border-radius: 6px;
 }
 
+.card a {
+  color: #252C32;
+}
+
 .card_theme-1 {
   margin: 8px 0;
 }

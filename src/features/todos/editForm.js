@@ -25,8 +25,6 @@ export default class EditForm extends React.Component {
         return this.state.title;
     }
 
-/*
-    */
 
     handleChange(e)  {        
         this.setState({

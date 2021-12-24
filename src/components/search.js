@@ -1,5 +1,5 @@
 import React from 'react';
-import { debounce } from '../utils'
+//import { debounce } from '../utils'
 
 
 export default class Search extends React.Component {
@@ -16,12 +16,9 @@ export default class Search extends React.Component {
     }
 
     handleChange(e) {
-        debounce(
-            this.setState({
-                text: e.target.value
-            }),
-            300
-        );
+        this.setState({
+            text: e.target.value
+        })
     }
 
     handleSearch() {
