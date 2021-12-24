@@ -16,7 +16,6 @@ export default class EditForm extends React.Component {
 
         this.priorityEl = React.createRef();
         this.statusEl = React.createRef();
-        this.storyPointsEl = React.createRef();
         this.descriptionEl = React.createRef();
 
         this.handleChange = this.handleChange.bind(this);
@@ -54,7 +53,7 @@ export default class EditForm extends React.Component {
                 title: this.state.title,
                 description: this.descriptionEl.current.value,
                 priority: this.priorityEl.current.value,
-                storyPoints: this.storyPointsEl.value,
+                storyPoints: document.getElementById('story_points').value,
                 status: this.statusEl.current.value
             }
         });
@@ -81,7 +80,7 @@ export default class EditForm extends React.Component {
                     <option value={priorLevels.NORMAL}>Normal</option>
                 </select>
 
-                <StoryPoints val={initialTodo.storyPoints} ref={this.storyPointsEl}/>
+                <StoryPoints initialValue={initialTodo.storyPoints} />
 
                 <select defaultValue={initialTodo.status} ref={this.statusEl}>
                     <option hidden value={statusTypes.NOT_SET}>Status</option>

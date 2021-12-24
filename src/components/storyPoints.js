@@ -1,10 +1,18 @@
-import { useState } from "react";
+import React from "react";
 
 
-export default function StoryPoints(props) {
-    const [val, setVal] = useState(props.val);
+export default class StoryPoints extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const handleChange = (e) => {
+        this.state = {
+            val: props.initialValue
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
         //console.log(e.target.value);
 
         //const inputVal = parseInt(e.target.value);
@@ -17,12 +25,18 @@ export default function StoryPoints(props) {
             inputVal = 10
         }
         
-        setVal(inputVal);
+        this.setState({
+            val: inputVal
+        });
     }
 
-    return (
-        <input type='number' value={val} 
-            onChange={handleChange} 
-            onFocus={e => { e.target.select()}} />
-    )
+    render() {
+        return (
+            <input type='number' value={this.state.val} 
+                onChange={this.handleChange} 
+                onFocus={e => { e.target.select()}} 
+                id='story_points'
+            />
+        )
+    }
 }
