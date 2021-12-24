@@ -2,9 +2,10 @@ import { Fragment, useState } from "react";
 import { useParams } from "react-router-dom";
 import EditForm from './editForm';
 //import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getTodoById } from './utils'
 import PriorityPic from './priorityPic'
+
 
 
 export default function Description() {
@@ -29,8 +30,10 @@ export default function Description() {
     let [view, setView] = useState(readView);
     
 
+    const dispatch = useDispatch();
+
     function handleEdit() {
-        setView(<EditForm todo={todo} />);
+        setView(<EditForm initialTodo={todo} dispatch={dispatch}/>);
        
     };
 
