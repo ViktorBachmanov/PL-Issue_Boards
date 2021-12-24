@@ -88,7 +88,6 @@ export default class EditForm extends React.Component {
                             className='edit-form__textarea_theme-1'
                             defaultValue={initialTodo.description}
                             ref={this.descriptionEl}
-                            className='description-text'
                 />
 
                 <Link to='/'>
