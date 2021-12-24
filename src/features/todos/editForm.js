@@ -36,6 +36,11 @@ export default class EditForm extends React.Component {
     }
 
     handleSave() {
+        let stat = this.statusEl.current.value;
+        if(stat === statusTypes.NOT_SET) {
+            stat = statusTypes.TO_DO
+        }
+
         this.props.dispatch({
             type: 'todos/todoSave',
             payload: {
@@ -44,7 +49,7 @@ export default class EditForm extends React.Component {
                 description: this.descriptionEl.current.value,
                 priority: this.priorityEl.current.value,
                 storyPoints: document.getElementById('story_points').value,
-                status: this.statusEl.current.value
+                status: stat
             }
         });
     };
@@ -54,7 +59,7 @@ export default class EditForm extends React.Component {
         const initialTodo = this.props.initialTodo;
 
         return (
-            <div className='edit-form'>
+            <div className='edit-form edit-form_theme-1'>
                 <input placeholder='Title *' 
                         maxLength='100' 
                         className='edit-form__input-title_theme-1'
@@ -85,6 +90,7 @@ export default class EditForm extends React.Component {
                             className='edit-form__textarea_theme-1'
                             defaultValue={initialTodo.description}
                             ref={this.descriptionEl}
+                            className='description-text'
                 />
 
                 <Link to='/'>

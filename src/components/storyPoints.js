@@ -33,6 +33,7 @@ export default class StoryPoints extends React.Component {
     render() {
         return (
             <input type='number' value={this.state.val} 
+                className="story-points-input"
                 onChange={this.handleChange} 
                 onFocus={e => { e.target.select()}} 
                 id='story_points'
