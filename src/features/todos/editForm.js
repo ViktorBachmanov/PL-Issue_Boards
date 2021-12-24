@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { priorLevels, statusTypes } from '../../types'
 import StoryPoints from '../../components/storyPoints'
-import { getNextId } from './utils'
 import React from 'react';
 
 
@@ -28,15 +26,7 @@ export default class EditForm extends React.Component {
     }
 
 /*
-    let [ todo, setTodo ] = useState(props.todo || 
-        {
-            id: getNextId(todos),
-            title: '',
-            description: '',
-            priority: priorLevels.NONE,
-            storyPoints: 1,
-            status: statusTypes.NOT_SET,
-        })*/
+    */
 
     handleChange(e)  {        
         this.setState({

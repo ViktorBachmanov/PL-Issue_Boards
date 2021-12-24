@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import EditForm from './features/todos/editForm';
+import NewTodo from './features/todos/newTodo';
 import Description from './features/todos/description';
 import MainBoard from './components/mainBoard'
 import store from './store';
@@ -20,7 +20,7 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />}>
             <Route index element={<MainBoard/>}/>
-            <Route path='new' element={<EditForm />} />
+            <Route path='new' element={<NewTodo />} />
             <Route path=':todoId' element={<Description />} />
           </Route>          
         </Routes>
