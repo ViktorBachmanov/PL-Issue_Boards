@@ -1,7 +1,7 @@
 import { getNextId } from './utils';
 import { useSelector } from 'react-redux';
 import EditForm from './editForm';
-import { priorLevels, statusTypes } from '../../types';
+
 
 export default function NewTodo() {
   const todos = useSelector((state) => state.todos);

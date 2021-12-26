@@ -1,8 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { priorLevels, statusTypes } from '../../types';
-import StoryPoints from '../../components/storyPoints';
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
@@ -34,7 +33,7 @@ export default function EditForm(props) {
       data.status = statusTypes.TO_DO;
     }
 
-    const state = dispatch({
+    dispatch({
       type: 'todos/todoSave',
       payload: { id: props.initialTodo.id, ...data },
     });

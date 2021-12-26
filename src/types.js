@@ -3,7 +3,7 @@ export const priorLevels = {
   MAJOR: 'MAJOR',
   NORMAL: 'NORMAL',
   MINOR: 'MINOR',
-  NONE: 'NONE',
+  NONE: '',
 };
 
 export const statusTypes = {

@@ -25,7 +25,7 @@ export default function BreadCrumbs() {
           setPathname(` > ${id} ${todo.title}`);
         }
     }
-  }, [location]);
+  }, [location, todos]);
 
   return (
     <div className="breadcrumbs">
