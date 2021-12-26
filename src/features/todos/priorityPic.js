@@ -11,19 +11,19 @@ export default function PriorityPic(props) {
 
   switch (props.level) {
     case priorLevels.NORMAL:
-      pic = <PriorNormal />;
+      pic = <PriorNormal className='priority-pic'/>;
       break;
     case priorLevels.MINOR:
-      pic = <PriorMinor />;
+      pic = <PriorMinor className='priority-pic' />;
       break;
     case priorLevels.MAJOR:
-      pic = <PriorMajor />;
+      pic = <PriorMajor className='priority-pic' />;
       break;
     case priorLevels.CRITICAL:
-      pic = <PriorCritical />;
+      pic = <PriorCritical className='priority-pic' />;
       break;
     default:
-      pic = <PriorNone />;
+      pic = <PriorNone className='priority-pic' />;
       break;
   }
 

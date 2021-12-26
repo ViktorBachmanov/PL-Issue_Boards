@@ -136,6 +136,10 @@ button:disabled {
   height: 150px;
 }
 
+.priority-pic {
+  flex: 0 0 auto;
+}
+
 .story-points-pic {
   width: 25px;
   height: 25px;
@@ -146,6 +150,7 @@ button:disabled {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .story-points-pic_theme-1 {
