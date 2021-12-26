@@ -4,7 +4,6 @@ import Board from './board';
 import { statusTypes } from '../types'
 import Search from './search'
 import { useDispatch, useSelector } from 'react-redux';
-import filterReducer from "../features/filter/filterSlice";
 
 
 export default function MainBoard() {

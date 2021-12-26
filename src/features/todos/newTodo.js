@@ -1,5 +1,5 @@
 import { getNextId } from './utils'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import EditForm from './editForm';
 import { priorLevels, statusTypes } from '../../types'
 
@@ -8,17 +8,18 @@ export default function NewTodo() {
 
     const todos = useSelector(state => state.todos);
 
+    const nextId = getNextId(todos);
+
     const newTodo = {
-        id: getNextId(todos),
+        id: nextId,
         title: '',
         description: '',
-        priority: priorLevels.NONE,
+        priority: '',
         storyPoints: 1,
-        status: statusTypes.NOT_SET,
+        status: '',
     };
 
-    const dispatch = useDispatch();
 
-    return <EditForm initialTodo={newTodo} dispatch={dispatch}/>;
+    return <EditForm initialTodo={newTodo} />;
 
 }

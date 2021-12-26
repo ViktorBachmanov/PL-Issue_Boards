@@ -1,104 +1,147 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { priorLevels, statusTypes } from '../../types'
 import StoryPoints from '../../components/storyPoints'
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 
 
-export default class EditForm extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            title: props.initialTodo.title
-        };
-
-        this.priorityEl = React.createRef();
-        this.statusEl = React.createRef();
-        this.descriptionEl = React.createRef();
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSave = this.handleSave.bind(this);
-    }
+import { useForm, Controller } from "react-hook-form";
+import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 
-    get isValid() {
-        return this.state.title;
-    }
+export default function EditForm(props) {
+    
+    const { handleSubmit, control, formState: { errors } } = useForm({
+        defaultValues: {
+            title: props.initialTodo.title,
+            priority: props.initialTodo.priority,
+            storyPoints: props.initialTodo.storyPoints,
+            status: props.initialTodo.status,
+            description: props.initialTodo.description,
+        }
+    });
 
 
-    handleChange(e)  {        
-        this.setState({
-            title: e.target.value
-        });
-       
-    }
+    const dispatch = useDispatch();
 
-    handleSave() {
-        let stat = this.statusEl.current.value;
-        if(stat === statusTypes.NOT_SET) {
-            stat = statusTypes.TO_DO
+    let navigate = useNavigate();
+
+    const onSubmit = data => {
+        if(data.priority === '') {
+            data.priority = priorLevels.NONE;
+        }
+        if(data.status === '') {
+            data.status = statusTypes.TO_DO;
         }
 
-        this.props.dispatch({
+        const state = dispatch({
             type: 'todos/todoSave',
-            payload: {
-                id: this.props.initialTodo.id,
-                title: this.state.title,
-                description: this.descriptionEl.current.value,
-                priority: this.priorityEl.current.value,
-                storyPoints: document.getElementById('story_points').value,
-                status: stat
-            }
+            payload: { id: props.initialTodo.id, ...data }
         });
-    };
-    
 
-    render() {
-        const initialTodo = this.props.initialTodo;
-
-        return (
-            <div className='edit-form edit-form_theme-1'>
-                <input placeholder='Title *' 
-                        maxLength='100' 
-                        className='edit-form__input-title_theme-1'
-                        onChange={this.handleChange}
-                        value={this.state.title}
-                />
-
-                <select defaultValue={initialTodo.priority} ref={this.priorityEl}>
-                    <option hidden value={priorLevels.NONE}>Priority</option>
-                    <option value={priorLevels.CRITICAL}>Critical</option>
-                    <option value={priorLevels.MAJOR}>Major</option>
-                    <option value={priorLevels.MINOR}>Minor</option>
-                    <option value={priorLevels.NORMAL}>Normal</option>
-                </select>
-
-                <StoryPoints initialValue={initialTodo.storyPoints} />
-
-                <select defaultValue={initialTodo.status} ref={this.statusEl}>
-                    <option hidden value={statusTypes.NOT_SET}>Status</option>
-                    <option value={statusTypes.TO_DO}>{statusTypes.TO_DO}</option>
-                    <option value={statusTypes.IN_PROGRESS}>{statusTypes.IN_PROGRESS}</option>
-                    <option value={statusTypes.TEST}>{statusTypes.TEST}</option>
-                    <option value={statusTypes.DONE}>{statusTypes.DONE}</option>
-                </select>
-
-                <textarea placeholder='Description' 
-                            maxLength='300'
-                            className='edit-form__textarea_theme-1'
-                            defaultValue={initialTodo.description}
-                            ref={this.descriptionEl}
-                />
-
-                <Link to='/'>
-                    <button className="button button_blue" 
-                            onClick={this.handleSave}
-                            disabled={!this.isValid}
-                    >
-                        Save
-                    </button>
-                </Link>
-            </div>
-        );
+        navigate("/", { replace: true });           
     }
+
+
+
+
+    return (
+        <form className='edit-form edit-form_theme-1'
+                onSubmit={handleSubmit(onSubmit)}
+        >            
+
+            <Controller
+                name="title"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => 
+                    <TextField  label="Title *" 
+                                variant="outlined"
+                                fullWidth
+                                {...field}
+                                error={errors.title ? true : false}
+                                style={{margin: '1rem'}}
+                    />
+                }
+            />
+
+            <Controller
+                name="priority"
+                control={control}
+                render={({ field }) => 
+                    <FormControl style={{width: '125px', margin: '1rem'}}>
+                    <InputLabel>Priority</InputLabel>
+                        <Select  
+                            label='Priority'
+                            {...field}
+                        >
+                            <MenuItem value={priorLevels.CRITICAL}>Critical</MenuItem>
+                            <MenuItem value={priorLevels.MAJOR}>Major</MenuItem>
+                            <MenuItem value={priorLevels.MINOR}>Minor</MenuItem>
+                            <MenuItem value={priorLevels.NORMAL}>Normal</MenuItem>
+                        </Select>
+                    </FormControl>
+                    }
+                
+            />
+
+            <Controller
+                name="storyPoints"
+                control={control}
+                rules={{ min: 1, max: 10 }}
+                render={({ field }) => 
+                    <TextField  label="Story points" 
+                                variant="outlined" 
+                                type='number'
+                                error={errors.storyPoints ? true : false}
+                                {...field}
+                                style={{width: '125px', margin: '1rem'}}
+                    />
+                }
+            />
+
+            <Controller
+                name="status"
+                control={control}
+                render={({ field }) => 
+                    <FormControl style={{width: '150px', margin: '1rem'}}>
+                    <InputLabel>Status</InputLabel>
+                        <Select  
+                            label='Status'
+                            {...field}
+                        >
+                            <MenuItem value={statusTypes.TO_DO}>{statusTypes.TO_DO}</MenuItem>
+                            <MenuItem value={statusTypes.IN_PROGRESS}>{statusTypes.IN_PROGRESS}</MenuItem>
+                            <MenuItem value={statusTypes.TEST}>{statusTypes.TEST}</MenuItem>
+                            <MenuItem value={statusTypes.DONE}>{statusTypes.DONE}</MenuItem>
+                        </Select>
+                    </FormControl>
+                    }
+                
+            />
+
+            <Controller
+                name="description"
+                control={control}
+                render={({ field }) => 
+                    <TextField  label="Description" 
+                                variant="outlined"
+                                fullWidth
+                                multiline
+                                minRows='5'
+                                {...field}
+                                style={{margin: '1rem'}}
+                    />
+                }
+            />
+
+            <Button variant="contained"
+                    type='submit'
+                     style={{textTransform: 'none', margin: '1rem'}}
+            >
+                Save
+            </Button>
+        </form>
+    );
+    
 }
