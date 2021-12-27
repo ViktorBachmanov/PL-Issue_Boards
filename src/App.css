@@ -2,7 +2,7 @@
   padding: 11px;
 }
 
-h2 {
+h1, h2 {
   font-size: 24px;
 }
 
@@ -32,7 +32,8 @@ button:disabled {
 }
 
 .main-board__title {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-right: 2rem;
 }
 
@@ -47,7 +48,7 @@ button:disabled {
 }
 
 .button_orange {
-  background: #F2994A;
+  background: #f3e6db;
 }
 
 .button_blue {

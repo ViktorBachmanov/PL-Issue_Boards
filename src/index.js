@@ -12,9 +12,33 @@ import MainBoard from './components/mainBoard';
 import store from './store';
 import App from './App';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const theme = createTheme({
+  components: {
+    // Name of the component
+    MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          borderRadius: '6px',
+          textTransform: 'none',
+          fontSize: '14px',
+          lineHeight: '24px',
+          padding: '4px 12px'
+        },
+      },
+    },
+  },
+});
+
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
@@ -24,6 +48,7 @@ ReactDOM.render(
           </Route>
         </Routes>
       </BrowserRouter>
+    </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

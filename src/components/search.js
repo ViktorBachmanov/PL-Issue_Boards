@@ -1,5 +1,6 @@
 import React from 'react';
 //import { debounce } from '../utils'
+import { Button } from '@mui/material';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -32,9 +33,9 @@ export default class Search extends React.Component {
       <div>
         <input placeholder="Search" className="search_theme-1" onChange={this.handleChange} value={this.state.text} />
 
-        <button className="button button_blue" onClick={this.handleSearch}>
+        <Button variant="contained" onClick={this.handleSearch}>
           Search
-        </button>
+        </Button>
       </div>
     );
   }

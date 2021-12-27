@@ -146,7 +146,7 @@ export default function EditForm(props) {
         )}
       />
 
-      <Button variant="contained" type="submit" style={{ textTransform: 'none', margin: '1rem' }}>
+      <Button variant="contained" type="submit" style={{ margin: '1rem' }}>
         Save
       </Button>
     </form>
