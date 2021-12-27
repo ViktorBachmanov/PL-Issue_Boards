@@ -6,7 +6,6 @@ import Search from './search';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 
-
 export default function MainBoard() {
   let todos = useSelector((state) => state.todos);
   const filter = useSelector((state) => state.filter);
@@ -23,9 +22,9 @@ export default function MainBoard() {
   return (
     <Fragment>
       <div className="main-board__title">
-        <h1 style={{marginRight: '1.5rem'}}>Issue Boards</h1>
-        <Link to="/new" >
-          <Button variant="contained" style={{background: '#F2994A'}} >
+        <h1 style={{ marginRight: '1.5rem' }}>Issue Boards</h1>
+        <Link to="/new">
+          <Button variant="contained" style={{ background: '#F2994A' }}>
             New issue
           </Button>
         </Link>

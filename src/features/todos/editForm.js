@@ -25,7 +25,6 @@ export default function EditForm(props) {
 
   let navigate = useNavigate();
 
-
   const onSubmit = (data) => {
     if (data.priority === '') {
       data.priority = priorLevels.NONE;
@@ -44,8 +43,8 @@ export default function EditForm(props) {
 
   let titleHelperText = ' ';
   const titleMaxLength = 100;
-  if(errors.title) {
-    switch(errors.title.type) {
+  if (errors.title) {
+    switch (errors.title.type) {
       case 'required':
         titleHelperText = 'Required field';
         break;
@@ -71,7 +70,7 @@ export default function EditForm(props) {
             required
             variant="outlined"
             fullWidth
-            size='small'
+            size="small"
             {...field}
             error={errors.title ? true : false}
             helperText={titleHelperText}
@@ -84,9 +83,9 @@ export default function EditForm(props) {
         name="priority"
         control={control}
         render={({ field }) => (
-          <FormControl size='small' style={{ width: '125px', margin: '1rem' }}>
+          <FormControl size="small" style={{ width: '125px', margin: '1rem' }}>
             <InputLabel>Priority</InputLabel>
-            <Select label="Priority"  {...field}>
+            <Select label="Priority" {...field}>
               <MenuItem value={priorLevels.CRITICAL}>Critical</MenuItem>
               <MenuItem value={priorLevels.MAJOR}>Major</MenuItem>
               <MenuItem value={priorLevels.MINOR}>Minor</MenuItem>
@@ -105,7 +104,7 @@ export default function EditForm(props) {
             label="Story points"
             variant="outlined"
             type="number"
-            size='small'
+            size="small"
             error={errors.storyPoints ? true : false}
             helperText={errors.storyPoints ? 'Range from 1 to 10' : ' '}
             {...field}
@@ -118,7 +117,7 @@ export default function EditForm(props) {
         name="status"
         control={control}
         render={({ field }) => (
-          <FormControl size='small' style={{ width: '150px', margin: '1rem' }}>
+          <FormControl size="small" style={{ width: '150px', margin: '1rem' }}>
             <InputLabel>Status</InputLabel>
             <Select label="Status" {...field}>
               <MenuItem value={statusTypes.TO_DO}>{statusTypes.TO_DO}</MenuItem>
@@ -140,7 +139,7 @@ export default function EditForm(props) {
             variant="outlined"
             fullWidth
             multiline
-            size='small'
+            size="small"
             minRows="5"
             error={errors.description ? true : false}
             helperText={errors.description ? `${descMaxLength} characters maximum` : ' '}

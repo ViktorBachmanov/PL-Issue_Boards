@@ -3,7 +3,6 @@ import React from 'react';
 import { TextField, InputAdornment, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -32,26 +31,29 @@ export default class Search extends React.Component {
   }
 
   handleKeyDown(e) {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       this.handleSearch();
     }
   }
 
   render() {
     return (
-      <div className='search-bar search-bar_theme-1'>
+      <div className="search-bar search-bar_theme-1">
         <TextField
-          placeholder='Search'
-          size='small'
+          placeholder="Search"
+          size="small"
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
           value={this.state.text}
           InputProps={{
-            startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
           }}
-          style={{marginRight: '8px'}}
+          style={{ marginRight: '8px' }}
         />
-
 
         <Button variant="contained" onClick={this.handleSearch}>
           Search

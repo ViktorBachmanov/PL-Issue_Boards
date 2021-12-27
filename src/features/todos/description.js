@@ -6,20 +6,19 @@ import { getTodoById } from './utils';
 import PriorityPic from './priorityPic';
 import { Button } from '@mui/material';
 
-
 export default function Description() {
   const { todoId } = useParams();
   const todo = useSelector((state) => getTodoById(state.todos, todoId));
 
-  const [mode, setMode] = useState('READ');   // READ / EDIT
+  const [mode, setMode] = useState('READ'); // READ / EDIT
 
   function handleEdit() {
     setMode('EDIT');
   }
 
-  console.log('Description render');
+  //console.log('Description render');
 
-  return mode === 'READ' ? 
+  return mode === 'READ' ? (
     <Fragment>
       <h2>
         {todoId} {todo.title}
@@ -29,12 +28,13 @@ export default function Description() {
         <div className="story-points-pic story-points-pic_theme-1">{todo.storyPoints}</div>
         <div className="description-bar__status">{todo.status}</div>
 
-        <Button onClick={handleEdit} variant="contained" style={{background: '#F2994A'}}>
+        <Button onClick={handleEdit} variant="contained" style={{ background: '#F2994A' }}>
           Edit
         </Button>
       </div>
       <div className="description-text">{todo.description}</div>
     </Fragment>
-       : 
-   <EditForm initialTodo={todo}/>;
+  ) : (
+    <EditForm initialTodo={todo} />
+  );
 }

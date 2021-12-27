@@ -14,7 +14,6 @@ import App from './App';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-
 const theme = createTheme({
   components: {
     // Name of the component
@@ -22,54 +21,28 @@ const theme = createTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          // Some CSS
           borderRadius: '6px',
           textTransform: 'none',
-          /*fontSize: '14px',
-          lineHeight: '24px',
-          padding: '4px 12px'*/
-        },
-      },
-    },/*
-    MuiOutlinedInput: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          borderRadius: '6px',
-          fontSize: '14px',
-          lineHeight: '24px',
-          height: '32px'
         },
       },
     },
-    MuiInputLabel: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          fontSize: '14px',
-          lineHeight: '24px',
-          //transform: 'translate(10px, 12px)',
-        },
-      },
-    },*/
   },
 });
-
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<MainBoard />} />
-            <Route path="new" element={<NewTodo />} />
-            <Route path=":todoId" element={<Description />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index element={<MainBoard />} />
+              <Route path="new" element={<NewTodo />} />
+              <Route path=":todoId" element={<Description />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
