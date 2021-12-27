@@ -1,6 +1,8 @@
 import React from 'react';
 //import { debounce } from '../utils'
-import { Button } from '@mui/material';
+import { TextField, InputAdornment, Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -31,7 +33,15 @@ export default class Search extends React.Component {
   render() {
     return (
       <div>
-        <input placeholder="Search" className="search_theme-1" onChange={this.handleChange} value={this.state.text} />
+        <TextField
+          placeholder='Search'
+          onChange={this.handleChange}
+          value={this.state.text}
+          InputProps={{
+            startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
+          }}
+        />
+
 
         <Button variant="contained" onClick={this.handleSearch}>
           Search
