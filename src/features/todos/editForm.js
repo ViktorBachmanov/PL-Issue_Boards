@@ -25,6 +25,7 @@ export default function EditForm(props) {
 
   let navigate = useNavigate();
 
+
   const onSubmit = (data) => {
     if (data.priority === '') {
       data.priority = priorLevels.NONE;
@@ -41,12 +42,29 @@ export default function EditForm(props) {
     navigate('/', { replace: true });
   };
 
+  let titleHelperText = ' ';
+  const titleMaxLength = 100;
+  if(errors.title) {
+    switch(errors.title.type) {
+      case 'required':
+        titleHelperText = 'Required field';
+        break;
+      case 'maxLength':
+        titleHelperText = `${titleMaxLength} characters maximum`;
+        break;
+      default:
+        titleHelperText = ' ';
+    }
+  }
+
+  const descMaxLength = 300;
+
   return (
     <form className="edit-form edit-form_theme-1" onSubmit={handleSubmit(onSubmit)}>
       <Controller
         name="title"
         control={control}
-        rules={{ required: true }}
+        rules={{ required: true, maxLength: titleMaxLength }}
         render={({ field }) => (
           <TextField
             label="Title *"
@@ -54,7 +72,8 @@ export default function EditForm(props) {
             fullWidth
             {...field}
             error={errors.title ? true : false}
-            style={{ margin: '1rem' }}
+            helperText={titleHelperText}
+            style={{ margin: '1rem 1rem 0' }}
           />
         )}
       />
@@ -85,8 +104,9 @@ export default function EditForm(props) {
             variant="outlined"
             type="number"
             error={errors.storyPoints ? true : false}
+            helperText={errors.storyPoints ? 'Range from 1 to 10' : ' '}
             {...field}
-            style={{ width: '125px', margin: '1rem' }}
+            style={{ width: '125px', margin: '1rem 1rem 0' }}
           />
         )}
       />
@@ -110,6 +130,7 @@ export default function EditForm(props) {
       <Controller
         name="description"
         control={control}
+        rules={{ maxLength: descMaxLength }}
         render={({ field }) => (
           <TextField
             label="Description"
@@ -117,8 +138,10 @@ export default function EditForm(props) {
             fullWidth
             multiline
             minRows="5"
+            error={errors.description ? true : false}
+            helperText={errors.description ? `${descMaxLength} characters maximum` : ' '}
             {...field}
-            style={{ margin: '1rem' }}
+            style={{ margin: '1rem 1rem 0' }}
           />
         )}
       />
