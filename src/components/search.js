@@ -32,14 +32,16 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='search-bar search-bar_theme-1'>
         <TextField
           placeholder='Search'
+          size='small'
           onChange={this.handleChange}
           value={this.state.text}
           InputProps={{
             startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
           }}
+          style={{marginRight: '8px'}}
         />
 
 

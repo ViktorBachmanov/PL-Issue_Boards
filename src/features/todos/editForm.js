@@ -67,9 +67,11 @@ export default function EditForm(props) {
         rules={{ required: true, maxLength: titleMaxLength }}
         render={({ field }) => (
           <TextField
-            label="Title *"
+            label="Title"
+            required
             variant="outlined"
             fullWidth
+            size='small'
             {...field}
             error={errors.title ? true : false}
             helperText={titleHelperText}
@@ -82,9 +84,9 @@ export default function EditForm(props) {
         name="priority"
         control={control}
         render={({ field }) => (
-          <FormControl style={{ width: '125px', margin: '1rem' }}>
+          <FormControl size='small' style={{ width: '125px', margin: '1rem' }}>
             <InputLabel>Priority</InputLabel>
-            <Select label="Priority" {...field}>
+            <Select label="Priority"  {...field}>
               <MenuItem value={priorLevels.CRITICAL}>Critical</MenuItem>
               <MenuItem value={priorLevels.MAJOR}>Major</MenuItem>
               <MenuItem value={priorLevels.MINOR}>Minor</MenuItem>
@@ -103,6 +105,7 @@ export default function EditForm(props) {
             label="Story points"
             variant="outlined"
             type="number"
+            size='small'
             error={errors.storyPoints ? true : false}
             helperText={errors.storyPoints ? 'Range from 1 to 10' : ' '}
             {...field}
@@ -115,7 +118,7 @@ export default function EditForm(props) {
         name="status"
         control={control}
         render={({ field }) => (
-          <FormControl style={{ width: '150px', margin: '1rem' }}>
+          <FormControl size='small' style={{ width: '150px', margin: '1rem' }}>
             <InputLabel>Status</InputLabel>
             <Select label="Status" {...field}>
               <MenuItem value={statusTypes.TO_DO}>{statusTypes.TO_DO}</MenuItem>
@@ -137,6 +140,7 @@ export default function EditForm(props) {
             variant="outlined"
             fullWidth
             multiline
+            size='small'
             minRows="5"
             error={errors.description ? true : false}
             helperText={errors.description ? `${descMaxLength} characters maximum` : ' '}

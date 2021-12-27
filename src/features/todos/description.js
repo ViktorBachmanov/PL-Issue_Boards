@@ -4,12 +4,22 @@ import EditForm from './editForm';
 import { useSelector } from 'react-redux';
 import { getTodoById } from './utils';
 import PriorityPic from './priorityPic';
+import { Button } from '@mui/material';
+
 
 export default function Description() {
   const { todoId } = useParams();
   const todo = useSelector((state) => getTodoById(state.todos, todoId));
 
-  let readView = (
+  const [mode, setMode] = useState('READ');   // READ / EDIT
+
+  function handleEdit() {
+    setMode('EDIT');
+  }
+
+  console.log('Description render');
+
+  return mode === 'READ' ? 
     <Fragment>
       <h2>
         {todoId} {todo.title}
@@ -19,19 +29,12 @@ export default function Description() {
         <div className="story-points-pic story-points-pic_theme-1">{todo.storyPoints}</div>
         <div className="description-bar__status">{todo.status}</div>
 
-        <button className="button button_orange description-bar__button" onClick={handleEdit}>
+        <Button onClick={handleEdit} variant="contained" style={{background: '#F2994A'}}>
           Edit
-        </button>
+        </Button>
       </div>
       <div className="description-text">{todo.description}</div>
     </Fragment>
-  );
-
-  let [view, setView] = useState(readView);
-
-  function handleEdit() {
-    setView(<EditForm initialTodo={todo} />);
-  }
-
-  return view;
+       : 
+   <EditForm initialTodo={todo}/>;
 }

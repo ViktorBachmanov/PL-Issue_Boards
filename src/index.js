@@ -25,12 +25,33 @@ const theme = createTheme({
           // Some CSS
           borderRadius: '6px',
           textTransform: 'none',
+          /*fontSize: '14px',
+          lineHeight: '24px',
+          padding: '4px 12px'*/
+        },
+      },
+    },/*
+    MuiOutlinedInput: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          borderRadius: '6px',
           fontSize: '14px',
           lineHeight: '24px',
-          padding: '4px 12px'
+          height: '32px'
         },
       },
     },
+    MuiInputLabel: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          fontSize: '14px',
+          lineHeight: '24px',
+          //transform: 'translate(10px, 12px)',
+        },
+      },
+    },*/
   },
 });
 

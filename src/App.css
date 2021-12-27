@@ -2,7 +2,11 @@
   padding: 11px;
 }
 
-h1, h2 {
+h1 {
+  font-size: 28px;
+}
+
+h2 {
   font-size: 24px;
 }
 
@@ -37,8 +41,13 @@ button:disabled {
   margin-right: 2rem;
 }
 
-.search_theme-1 {
-  margin: 0.5rem;
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar_theme-1 {
+  margin-bottom: 1rem;
 }
 
 .button {
@@ -162,7 +171,6 @@ button:disabled {
 .description-bar {
   display: flex;
   align-items: center;
-  width: 200px;
 }
 
 .description-bar__button {
@@ -171,6 +179,7 @@ button:disabled {
 
 .description-bar__status {
   margin-left: 1rem;
+  margin-right: 2rem;
   font-size: 14px;
   font-weight: 600;
 }
