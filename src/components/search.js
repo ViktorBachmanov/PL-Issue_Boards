@@ -15,6 +15,7 @@ export default class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleChange(e) {
@@ -30,6 +31,12 @@ export default class Search extends React.Component {
     });
   }
 
+  handleKeyDown(e) {
+    if(e.key === 'Enter') {
+      this.handleSearch();
+    }
+  }
+
   render() {
     return (
       <div className='search-bar search-bar_theme-1'>
@@ -37,6 +44,7 @@ export default class Search extends React.Component {
           placeholder='Search'
           size='small'
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           value={this.state.text}
           InputProps={{
             startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
