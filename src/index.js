@@ -15,7 +15,6 @@ import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { routes } from './constants';
 
-
 const theme = createTheme({
   components: {
     // Name of the component

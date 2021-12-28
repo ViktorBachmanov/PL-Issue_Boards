@@ -1,7 +1,6 @@
 import initialState from './initialState';
 import { getTodoById, replaceTodoById } from './utils';
-import { createSlice } from '@reduxjs/toolkit'
-
+import { createSlice } from '@reduxjs/toolkit';
 
 export const todosSlice = createSlice({
   name: 'todos',
@@ -26,8 +25,8 @@ export const todosSlice = createSlice({
       const newTodo = { ...todo, status: action.payload.status };
       let newState = replaceTodoById(state, newTodo);
       return newState;
-    }
-  }
+    },
+  },
 });
 
 export const { todoSave, todoChangeStatus } = todosSlice.actions;

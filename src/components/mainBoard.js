@@ -30,7 +30,7 @@ export default function MainBoard() {
         </Link>
       </div>
 
-      <Search/>
+      <Search />
 
       <div className="boards-container">
         <Board title={statusTypes.TO_DO} todos={filteredTodos} />

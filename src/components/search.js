@@ -5,7 +5,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { set as filterSetAction } from '../features/filter/filterSlice';
 import { connect } from 'react-redux';
 
-
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +24,7 @@ class Search extends React.Component {
       text: e.target.value,
     });
   }
-/*
+  /*
   handleSearch() {
     this.props.dispatch({
       type: 'filter/set',
@@ -68,6 +67,5 @@ class Search extends React.Component {
     );
   }
 }
-
 
 export default connect(null, { filterSetAction })(Search);

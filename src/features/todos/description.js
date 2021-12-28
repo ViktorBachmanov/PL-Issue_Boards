@@ -8,7 +8,6 @@ import { Button } from '@mui/material';
 
 import { useBreadcrumbs } from '../../components/breadCrumbs';
 
-
 export default function Description() {
   const { todoId } = useParams();
   useBreadcrumbs(todoId);

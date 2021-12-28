@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   pattern: '.',
@@ -15,10 +14,9 @@ export const filterSlice = createSlice({
         newPattern = '.';
       }
       return { pattern: newPattern };
-    }
-  }
+    },
+  },
 });
-
 
 export const { set } = filterSlice.actions;
 

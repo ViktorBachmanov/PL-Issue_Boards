@@ -8,7 +8,6 @@ import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@m
 import { routes } from '../../constants';
 import { todoSave as todoSaveAction } from './todosSlice';
 
-
 function EditForm(props) {
   const {
     handleSubmit,
@@ -23,7 +22,6 @@ function EditForm(props) {
       description: props.initialTodo.description,
     },
   });
-
 
   let navigate = useNavigate();
 

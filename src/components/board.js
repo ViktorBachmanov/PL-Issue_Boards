@@ -2,9 +2,7 @@ import Card from '../features/todos/card';
 import { connect } from 'react-redux';
 import { todoChangeStatus as todoChangeStatusAction } from '../features/todos/todosSlice';
 
-
 function Board(props) {
-
   const filteredTodos = props.todos.filter((todo) => todo.status === props.title);
 
   const todoCards = filteredTodos.map((todo) => {
@@ -22,8 +20,8 @@ function Board(props) {
     ev.preventDefault();
     const todoId = ev.dataTransfer.getData('plain/text');
     props.todoChangeStatusAction({
-        id: todoId,
-        status: props.title,
+      id: todoId,
+      status: props.title,
     });
   };
 
@@ -35,6 +33,5 @@ function Board(props) {
     </div>
   );
 }
-
 
 export default connect(null, { todoChangeStatusAction })(Board);

@@ -4,7 +4,6 @@ import EditForm from './editForm';
 
 import { useBreadcrumbs } from '../../components/breadCrumbs';
 
-
 export default function NewTodo() {
   useBreadcrumbs('New Issue');
 

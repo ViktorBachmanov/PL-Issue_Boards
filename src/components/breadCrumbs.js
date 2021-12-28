@@ -2,10 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../constants';
 
-
 export const PathContext = React.createContext({
   path: '',
-  setPath: () => {}
+  setPath: () => {},
 });
 
 export const useBreadcrumbs = (path) => {
@@ -23,7 +22,7 @@ export const useBreadcrumbs = (path) => {
 
 export default function BreadCrumbs() {
   let { path } = useContext(PathContext);
-  if(path) {
+  if (path) {
     path = ' > ' + path;
   }
 

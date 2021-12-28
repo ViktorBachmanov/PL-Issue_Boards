@@ -5,17 +5,16 @@ import { Outlet } from 'react-router-dom';
 
 import BreadCrumbs, { PathContext } from './components/breadCrumbs';
 
-
 function App() {
   const [path, setPath] = useState('');
 
   return (
-    <PathContext.Provider value={{path, setPath}}>
-    <div className="App">
-      <BreadCrumbs />
+    <PathContext.Provider value={{ path, setPath }}>
+      <div className="App">
+        <BreadCrumbs />
 
-      <Outlet />
-    </div>
+        <Outlet />
+      </div>
     </PathContext.Provider>
   );
 }

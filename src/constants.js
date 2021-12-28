@@ -1,6 +1,5 @@
 export const routes = {
-    HOME: '/',
-    NEW: 'new',
-    DESC: ':todoId',
+  HOME: '/',
+  NEW: 'new',
+  DESC: ':todoId',
 };
-
