@@ -1,8 +1,9 @@
 import Card from '../features/todos/card';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
+import { todoChangeStatus as todoChangeStatusAction } from '../features/todos/todosSlice';
 
-export default function Board(props) {
-  const dispatch = useDispatch();
+
+function Board(props) {
 
   const filteredTodos = props.todos.filter((todo) => todo.status === props.title);
 
@@ -20,12 +21,9 @@ export default function Board(props) {
   const handleDrop = (ev) => {
     ev.preventDefault();
     const todoId = ev.dataTransfer.getData('plain/text');
-    dispatch({
-      type: 'todos/todoChangeStatus',
-      payload: {
+    props.todoChangeStatusAction({
         id: todoId,
         status: props.title,
-      },
     });
   };
 
@@ -37,3 +35,6 @@ export default function Board(props) {
     </div>
   );
 }
+
+
+export default connect(null, { todoChangeStatusAction })(Board);
