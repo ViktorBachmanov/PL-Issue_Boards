@@ -2,7 +2,12 @@ import { getNextId } from './utils';
 import { useSelector } from 'react-redux';
 import EditForm from './editForm';
 
+import { useBreadcrumbs } from '../../components/breadCrumbs';
+
+
 export default function NewTodo() {
+  useBreadcrumbs('new');
+
   const todos = useSelector((state) => state.todos);
 
   const nextId = getNextId(todos);

@@ -6,8 +6,12 @@ import { getTodoById } from './utils';
 import PriorityPic from './priorityPic';
 import { Button } from '@mui/material';
 
+import { useBreadcrumbs } from '../../components/breadCrumbs';
+
+
 export default function Description() {
   const { todoId } = useParams();
+  useBreadcrumbs(todoId);
   const todo = useSelector((state) => getTodoById(state.todos, todoId));
 
   const [mode, setMode] = useState('READ'); // READ / EDIT

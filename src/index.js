@@ -13,6 +13,8 @@ import store from './store';
 import App from './App';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { routes } from './constants';
+
 
 const theme = createTheme({
   components: {
@@ -35,10 +37,10 @@ ReactDOM.render(
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<App />}>
+            <Route path={routes.HOME} element={<App />}>
               <Route index element={<MainBoard />} />
-              <Route path="new" element={<NewTodo />} />
-              <Route path=":todoId" element={<Description />} />
+              <Route path={routes.NEW} element={<NewTodo />} />
+              <Route path={routes.DESC} element={<Description />} />
             </Route>
           </Routes>
         </BrowserRouter>
