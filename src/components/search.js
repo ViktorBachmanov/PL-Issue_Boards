@@ -2,8 +2,11 @@ import React from 'react';
 //import { debounce } from '../utils'
 import { TextField, InputAdornment, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { set as filterSetAction } from '../features/filter/filterSlice';
+import { connect } from 'react-redux';
 
-export default class Search extends React.Component {
+
+class Search extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,12 +25,15 @@ export default class Search extends React.Component {
       text: e.target.value,
     });
   }
-
+/*
   handleSearch() {
     this.props.dispatch({
       type: 'filter/set',
       payload: this.state.text,
     });
+  }*/
+  handleSearch() {
+    this.props.filterSetAction(this.state.text);
   }
 
   handleKeyDown(e) {
@@ -62,3 +68,6 @@ export default class Search extends React.Component {
     );
   }
 }
+
+
+export default connect(null, { filterSetAction })(Search);
