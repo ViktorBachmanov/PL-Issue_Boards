@@ -10,8 +10,9 @@ import { useBreadcrumbs } from '../../components/breadCrumbs';
 
 export default function Description() {
   const { todoId } = useParams();
-  useBreadcrumbs(todoId);
   const todo = useSelector((state) => getTodoById(state.todos, todoId));
+  
+  useBreadcrumbs(todoId + ' ' + todo.title);
 
   const [mode, setMode] = useState('READ'); // READ / EDIT
 
