@@ -1,12 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { priorLevels, statusTypes } from '../../types';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { routes } from '../../constants';
+import { todoSave as todoSaveAction } from './todosSlice';
 
-export default function EditForm(props) {
+
+function EditForm(props) {
   const {
     handleSubmit,
     control,
@@ -21,7 +24,6 @@ export default function EditForm(props) {
     },
   });
 
-  const dispatch = useDispatch();
 
   let navigate = useNavigate();
 
@@ -33,12 +35,9 @@ export default function EditForm(props) {
       data.status = statusTypes.TO_DO;
     }
 
-    dispatch({
-      type: 'todos/todoSave',
-      payload: { id: props.initialTodo.id, ...data },
-    });
+    props.todoSaveAction({ id: props.initialTodo.id, ...data });
 
-    navigate('/', { replace: true });
+    navigate(routes.HOME, { replace: true });
   };
 
   let titleHelperText = ' ';
@@ -155,3 +154,5 @@ export default function EditForm(props) {
     </form>
   );
 }
+
+export default connect(null, { todoSaveAction })(EditForm);
