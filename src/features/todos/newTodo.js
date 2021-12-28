@@ -6,7 +6,7 @@ import { useBreadcrumbs } from '../../components/breadCrumbs';
 
 
 export default function NewTodo() {
-  useBreadcrumbs('new');
+  useBreadcrumbs('New Issue');
 
   const todos = useSelector((state) => state.todos);
 
