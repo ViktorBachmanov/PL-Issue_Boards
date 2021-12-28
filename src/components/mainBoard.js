@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Board from './board';
 import { statusTypes } from '../types';
 import Search from './search';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 
 export default function MainBoard() {
@@ -30,7 +30,7 @@ export default function MainBoard() {
         </Link>
       </div>
 
-      <Search dispatch={useDispatch()} />
+      <Search/>
 
       <div className="boards-container">
         <Board title={statusTypes.TO_DO} todos={filteredTodos} />
