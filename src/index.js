@@ -12,23 +12,11 @@ import MainBoard from './components/mainBoard';
 import store from './store';
 import App from './App';
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { routes } from './constants';
+import { theme } from './myMuiTheme';
 
-const theme = createTheme({
-  components: {
-    // Name of the component
-    MuiButton: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          borderRadius: '6px',
-          textTransform: 'none',
-        },
-      },
-    },
-  },
-});
+
 
 ReactDOM.render(
   <React.StrictMode>
